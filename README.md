@@ -26,14 +26,14 @@ Add following service providers into your providers array in `config/app.php`
 ),
 'aliases' => array(
     // ...
-    'SLSLog' => Lokielse\LaravelSLS\Facades\LogFacade::class,
+    'SLSLog' => Lokielse\LaravelSLS\Facades\SlSLog::class,
 ),
 ```
 
 If you’re need Log you can replace Log alias in your config/app.php
 ```php
 //'Log'               => Illuminate\Support\Facades\Log::class,
-'Log'                 => Lokielse\LaravelSLS\Facades\WriterFacade::class,
+'Log'                 => Lokielse\LaravelSLS\Facades\SLSLogWriter::class,
 ```
 
 Publish `sls.php` to `config` folder
