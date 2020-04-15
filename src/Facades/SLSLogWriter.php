@@ -4,7 +4,7 @@ namespace Lokielse\LaravelSLS\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class WriterFacade extends Facade
+class SLSLogWriter extends Facade
 {
 
     protected static function getFacadeAccessor()

@@ -56,7 +56,7 @@
         "Lokielse\\LaravelSLS\\LaravelSLSServiceProvider"
       ],
       "aliases": {
-        "SLSLog": "Lokielse\\LaravelSLS\\Facades\\LogFacade"
+        "SLSLog": "Lokielse\\LaravelSLS\\Facades\\SlSLog"
       }
     }
   }
