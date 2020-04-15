@@ -1,5 +1,8 @@
 # Aliyun SLS Log For Laravel
 
+# 说明
+**此包来源于 [lokielse/laravel-sls](https://github.com/lokielse/laravel-sls)**
+
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -9,29 +12,34 @@
 Via Composer
 
 ``` bash
-$ composer require lokielse/laravel-sls
+$ composer require pandasir/laravel-sls
 ```
 
 ## Config
+If you’re on Laravel 5.5 or later the package will be auto-discovered. Otherwise you will need to manually configure it in your config/app.php.
 
 Add following service providers into your providers array in `config/app.php`
-
 ```php
-Lokielse\LaravelSLS\LaravelSLSServiceProvider::class
+'providers' => array(
+    // ...
+    Lokielse\LaravelSLS\LaravelSLSServiceProvider::class,
+),
+'aliases' => array(
+    // ...
+    'SLSLog' => Lokielse\LaravelSLS\Facades\LogFacade::class,
+),
+```
+
+If you’re need Log you can replace Log alias in your config/app.php
+```php
+//'Log'               => Illuminate\Support\Facades\Log::class,
+'Log'                 => Lokielse\LaravelSLS\Facades\WriterFacade::class,
 ```
 
 Publish `sls.php` to `config` folder
 
 ```sh
 php artisan vendor:publish --provider="Lokielse\LaravelSLS\LaravelSLSServiceProvider" 
-```
-
-Replace `Log` alias in your `config/app.php` (Optional)
-
-```php
-//'Log'               => Illuminate\Support\Facades\Log::class,
-'Log'                 => Lokielse\LaravelSLS\Facades\WriterFacade::class,
-'SLSLog'              => Lokielse\LaravelSLS\Facades\LogFacade::class,
 ```
 
 Edit your `.env` file
