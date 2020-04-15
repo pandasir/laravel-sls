@@ -3,6 +3,7 @@
 namespace Lokielse\LaravelSLS;
 
 use Aliyun\SLS\Client;
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelSLSServiceProvider extends ServiceProvider
@@ -24,11 +25,11 @@ class LaravelSLSServiceProvider extends ServiceProvider
         $this->app->singleton('sls', function ($app) {
             $config = $app['config']['sls'];
 
-            $accessKeyId     = array_get($config, 'access_key_id');
-            $accessKeySecret = array_get($config, 'access_key_secret');
-            $endpoint        = array_get($config, 'endpoint');
-            $project         = array_get($config, 'project');
-            $store           = array_get($config, 'store');
+            $accessKeyId        = Arr::get($config, 'access_key_id');
+            $accessKeySecret    = Arr::get($config, 'access_key_secret');
+            $endpoint           = Arr::get($config, 'endpoint');
+            $project            = Arr::get($config, 'project');
+            $store              = Arr::get($config, 'store');
 
             $client = new Client($endpoint, $accessKeyId, $accessKeySecret);
 
