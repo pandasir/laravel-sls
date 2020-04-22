@@ -13,6 +13,7 @@ use Aliyun\SLS\Responses\GetHistogramsResponse;
 use Aliyun\SLS\Responses\GetLogsResponse;
 use Aliyun\SLS\Responses\ListLogStoresResponse;
 use Aliyun\SLS\Responses\ListTopicsResponse;
+use Illuminate\Support\Arr;
 
 class SLSLog
 {
@@ -71,7 +72,7 @@ class SLSLog
         $request  = new PutLogsRequest($this->project, $this->logStore, $topic, $source, [ $logItem ]);
         $response = $this->client->putLogs($request);
 
-        return array_get($response->getAllHeaders(), '_info.http_code') === 200;
+        return Arr::get($response->getAllHeaders(), '_info.http_code') === 200;
     }
 
 
