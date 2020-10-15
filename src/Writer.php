@@ -229,7 +229,7 @@ class Writer implements PsrLoggerInterface
         // log listeners. These are useful for building profilers or other tools
         // that aggregate all of the log messages for a given "request" cycle.
         if (isset( $this->dispatcher )) {
-            $this->dispatcher->fire('illuminate.log', compact('level', 'message', 'context'));
+            $this->dispatcher->dispatch('illuminate.log', compact('level', 'message', 'context'));
         }
     }
 

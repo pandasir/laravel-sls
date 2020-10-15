@@ -30,7 +30,7 @@ Add following service providers into your providers array in `config/app.php`
 ),
 ```
 
-If you’re need Log you can replace Log alias in your config/app.php
+If you’re need `Log` you can replace `Log` alias in your config/app.php
 ```php
 //'Log'               => Illuminate\Support\Facades\Log::class,
 'Log'                 => Lokielse\LaravelSLS\Facades\SLSLogWriter::class,
